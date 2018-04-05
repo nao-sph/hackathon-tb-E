@@ -19,11 +19,11 @@ function sendMessage() {
                     'このメッセージはすべてのクライアントに送信されます。');
 
     // メッセージ入力イベント（event3）を送信する
-    
+    socket.emit('event3',message);
 }
 
 // メッセージ表示イベント（event4）を受信する
-socket.on('', function (data) {
+socket.on('event4', function (data) {
     // 画面上にメッセージを表示
-    $('#thread').prepend('<p>' + '</p>');
+    $('#thread').prepend('<p>' + data + '</p>');
 });
