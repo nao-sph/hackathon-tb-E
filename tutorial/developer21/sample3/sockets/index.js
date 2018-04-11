@@ -16,15 +16,14 @@ module.exports = function (server) {
         socket.broadcast.emit('event2', '他のクライアントが接続しました。');
 
         // メッセージ入力イベント（event3）を受信する
-        socket.on('', function (data) {
+        socket.on('event3', function (data) {
             if (!data) {
                 return;
             }
-
             console.log('クライアントの入力値：' + data);
 
             // 全クライアントにメッセージ入力イベント（event4）を送信する
-
+            io.sockets.emit('event4', data);
         });
     });
 };
