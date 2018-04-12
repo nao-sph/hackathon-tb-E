@@ -6,4 +6,8 @@ module.exports = function (socket, io) {
       io.sockets.emit('event1',data,userName);
 
     });
+    socket.on('event2', function(data,userName){
+      io.sockets.emit('event2',data,userName);
+
+    });
 };
