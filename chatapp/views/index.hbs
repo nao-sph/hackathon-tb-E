@@ -1,20 +1,68 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="../stylesheet/style.css" /> -->
+<style>
+body{
+    background:#ccd8ff;
+}
+.container{
+    background: white;
+    text-align: center;
+    vertical-align: bottom;
+    width: 600px;
+    height: 500px
+    padding: 30px;
+    margin: 50px auto;
+    border-radius: 20px;
+}
+.row{
+    padding: 20px;
+    text-align: center;
+
+
+}
+.index-enter {
+    padding: 20px;
+    text-align: left;
+}
+.index-user_name{
+    /* height : 50px;
+    width :300px; */
+    padding-left: 20px;
+
+    /* background: #b299ff; */
+    border-radius: 10px;
+}
+span{
+    font-size: 30px;
+    color : #b299ff;
+}
+h1{
+    width: 100%;
+text-align: center;
+}
+</style>
+<body>
+
 <div class="container">
     <div class="row">
-        <h1>Node Chat サンプル</h1>
+
+        <h1>Node Chat<span>&nbsp　ver.A-group</span></h1>
+
     </div>
+
     <div class="row">
         <form method="post" action="/room">
             <div class="index-user_name">
                 ユーザ名
-                <input type="text" id="userName" name="userName" class="index-user_name_text">
+                <input type="text" id="userName" name="userName" class="index-user_name_text" placeholder="Username">
             </div>
             <div class="index-enter">
-                <input type="button" value="入室する" class="common-button index-enter_button btn btn-info" onclick="enter();">
+                <input type="button" value="ENTER" class="common-button index-enter_button btn btn-info" onclick="enter();">
             </div>
         </form>
     </div>
 </div>
+</body>
 
 <script src="/javascripts/index.js"></script>

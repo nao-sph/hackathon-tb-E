@@ -10,11 +10,14 @@ a {
 }
 
 div {
-    margin: 20px 0px;
+    /* margin: 20px 0px; */
+    /* background: white; */
 }
+.container{
 
+}
 .row {
-    margin: 20px;
+
 }
 
 /*
@@ -36,7 +39,7 @@ div {
 }
 
 .index-enter {
-
+    text-align: center;
 }
 
 .index-enter_button {
