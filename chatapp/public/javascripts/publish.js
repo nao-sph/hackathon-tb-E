@@ -14,5 +14,5 @@ function publish() {
 
 // サーバから受信した投稿メッセージを画面上に表示する
 socket.on('event1', function (data,userName) {
-    $('#thread').prepend('<p>'+ data + '</p>');
+    $('#thread').prepend('<p>'+ userName +'さん:'+ data + '</p>');
 });
