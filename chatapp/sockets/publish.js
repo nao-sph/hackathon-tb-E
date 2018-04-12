@@ -2,7 +2,7 @@
 
 module.exports = function (socket, io) {
     // 投稿メッセージを送信する
-    socket.on('', function (data) {
-        
+    socket.on('event1', function (data) {
+
     });
 };
