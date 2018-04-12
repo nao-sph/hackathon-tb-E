@@ -8,6 +8,8 @@ function memo() {
     const message = $('#message').val();
     // メモの内容を表示
     $('#thread').prepend('<p class="memo">memo: ' + message + '</p>');
+    // メモの内容を空にする
+    $('#message').val('')
 
     return false;
 }
