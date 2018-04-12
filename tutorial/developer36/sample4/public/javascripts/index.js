@@ -1,6 +1,6 @@
 // 要素の値を取得する
 function getValue() {
-    const text1Value = '';
+    const text1Value = $('#text1').val();
     return text1Value;
 }
 
@@ -16,5 +16,5 @@ function popupValue() {
 // 要素に値をセットする
 function setValue() {
     const text2Value = 'Rakus!';
-
+    $('#text2').text(text2Value);
 }
