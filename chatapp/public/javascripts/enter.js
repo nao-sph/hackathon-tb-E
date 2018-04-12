@@ -2,7 +2,7 @@
 
 // 入室メッセージをサーバに送信する
 // 入力されたユーザ名を取得する
-const userName = 'testName';
+const userName = $(#userName).value();
 // 入室メッセージイベントを送信する
 socket.emit('enter', userName)
 
