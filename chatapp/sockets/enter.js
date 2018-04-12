@@ -5,6 +5,7 @@ module.exports = function (socket, UM) {
     // 入室メッセージをクライアントに送信する
     socket.on('enter', function (data) {
         let user = UM.choose(socket.id)
+        user.name = data
         console.log(user);
         user.setName(data)
         user.setEntryTime(new Date())
