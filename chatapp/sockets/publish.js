@@ -7,7 +7,7 @@ module.exports = function (socket, io) {
       var date = new Date();
       var formatted = date.toFormat('HH24時MI分')
 
-      const data = '[' + formatted + ']' + userName + 'さん:' + message;
+      const data = '[' + formatted + '] ' + userName + 'さん:' + message;
       io.sockets.emit('event1',data);
       console.log(data);
     });
