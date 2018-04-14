@@ -5,10 +5,15 @@ body{
     background:#ccd8ff;
 }
 .room-thread{
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.input-button{
+    float: right;
+    margin-right: 5px;
 }
 #thread{
-    margin-left: 20px;
+    /* margin-left: 20px; */
     background: white;
   height: 300px;
     overflow: scroll;
@@ -25,6 +30,9 @@ body{
         </div>
         <div class="row">
             <form method="post" action="/">
+                <div class="room-thread">
+                    <div id="thread"></div>
+                </div>
                 <div class="room-login_user">
                     ログインユーザ：{{userName}}さん
                     <input id="userName" type="hidden" value="{{userName}}">
@@ -33,14 +41,14 @@ body{
                     <textarea id="message" rows="4" class="room-message_textarea" placeholder="投稿文を入力してください"></textarea>
                 </div>
                 <div class="room-submit">
-                    <input type="button" value="投稿" class="common-button room-publish_button btn btn-info" onclick="publish();">
-                    <input type="button" value="メモ" class="common-button room-memo_button btn btn-info" onclick="memo();">
-                </div>
-                <div class="room-thread">
-                    <div id="thread"></div>
-                </div>
-                <div class="room-exit">
                     <input type="button" value="退室する" class="common-button room-exit_button btn btn-info" onclick="exit();">
+                    <input type="button" value="投稿" class="common-button room-publish_button btn btn-info input-button" onclick="publish();">
+                    <input type="button" value="メモ" class="common-button room-memo_button btn btn-info input-button" onclick="memo();">
+
+                </div>
+
+                <div class="room-exit">
+
                 </div>
             </form>
         </div>
