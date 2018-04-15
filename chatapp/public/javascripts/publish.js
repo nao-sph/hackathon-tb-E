@@ -12,7 +12,7 @@ function publish() {
     const message = $('#message').val();
     // 投稿内容を送信
     socket.emit('event1',message,userName);
-    // io.to(socket.id).emit('event2',data,userName);
+    io.to(socket.id).emit('event2',data,userName);
     $('#message').val('');
     return false;
   }
