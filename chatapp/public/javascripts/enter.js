@@ -9,5 +9,6 @@ socket.emit('enter', userName)
 
 // サーバから受信した入室メッセージを画面上に表示する
 socket.on('enter', function (data) {
-    $('#thread').prepend('<p>' + data.entryUser.name + 'さんが入室しました。</p>');
+    $('#thread').append('<p>' + data.entryUser.name + 'さんが入室しました。</p>');
+    $("#thread").scrollTop( $("#thread")[0].scrollHeight );
 });

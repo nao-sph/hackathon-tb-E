@@ -7,7 +7,8 @@ function memo() {
     // 入力されたメッセージを取得
     const message = $('#message').val();
     // メモの内容を表示
-    $('#thread').prepend('<p class="memo">' + userName + 'さんのメモ: ' + message + '</p>');
+    $('#thread').append('<p class="memo">' + userName + 'さんのメモ: ' + message + '</p>');
+    $("#thread").scrollTop( $("#thread")[0].scrollHeight );
     // メモの内容を空にする
     $('#message').val('')
 

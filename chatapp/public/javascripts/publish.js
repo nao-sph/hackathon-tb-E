@@ -12,7 +12,9 @@ function publish() {
     const message = $('#message').val();
     // 投稿内容を送信
     socket.emit('event1',message,userName);
+
     io.to(socket.id).emit('event2',data,userName);
+
     $('#message').val('');
     return false;
   }
@@ -20,8 +22,10 @@ function publish() {
 
 // サーバから受信した投稿メッセージを画面上に表示する
 socket.on('event1', function (data) {
-    $('#thread').prepend('<p>' + data + '</p>');
+    $('#thread').append('<p>' + data + '</p>');
+    $("#thread").scrollTop( $("#thread")[0].scrollHeight );
 });
 socket.on('event2', function (data,userName){
-    $('#thread').prepend('<p>'+ userName + data + '<p>');
+    $('#thread').append('<p>'+ userName + data + '<p>');
+    $("#thread").scrollTop( $("#thread")[0].scrollHeight );
 });
