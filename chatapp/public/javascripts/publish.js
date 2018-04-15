@@ -1,6 +1,14 @@
 'use strict';
 
 // 投稿メッセージをサーバに送信する
+$( '#message' ).keypress( function ( e ) {
+	if ( e.which == 13 ) {
+		// ここに処理を記述
+        publish();
+
+		return false;
+	}
+} );
 function publish() {
 
   if (document.getElementById('message').value.replace(/\r?\n/g,"") == "" || document.getElementById('message') == null ) {
@@ -12,20 +20,31 @@ function publish() {
     const message = $('#message').val();
     // 投稿内容を送信
     socket.emit('event1',message,userName);
-
-    io.to(socket.id).emit('event2',data,userName);
-
+    // io.to(socket.id).emit('event2',data,userName);
     $('#message').val('');
     return false;
   }
 }
 
+function dispMe(formatted,userName,message){
+    var str='<div class="kaiwa"><figure class="kaiwa-img-right"><img src="https://i2.wp.com/sozaikoujou.com/wordpress/wp-content/uploads/2016/06/th_app_icon_account.jpg?w=600&ssl=1" alt="no-img2″><figcaption class="kaiwa-img-description">' + userName + '</figcaption></figure><div class="kaiwa-text-left"><p class="kaiwa-text">'+message+'</p></div><div class="kaiwa-time-left">'+formatted+'</div></div>';
+    $('#thread').append(str);
+    $('#thread-room').animate({scrollTop: $('#thread-room')[0].scrollHeight}, 'fast');
+}
+function dispOther(formatted,userName,message){
+    var str='<div class="kaiwa"><figure class="kaiwa-img-left"><img src="https://i2.wp.com/sozaikoujou.com/wordpress/wp-content/uploads/2016/06/th_app_icon_account.jpg?w=600&ssl=1" alt="no-img2″><figcaption class="kaiwa-img-description">' +userName + '</figcaption> </figure><div class="kaiwa-text-right"><p class="kaiwa-text">'+message+'</p></div><div class="kaiwa-time-right">'+formatted+'</div></div>';
+    $('#thread').append(str);
+    $('#thread-room').animate({scrollTop: $('#thread-room')[0].scrollHeight}, 'fast');
+}
 // サーバから受信した投稿メッセージを画面上に表示する
-socket.on('event1', function (data) {
-    $('#thread').append('<p>' + data + '</p>');
-    $("#thread").scrollTop( $("#thread")[0].scrollHeight );
+socket.on('event1', function (user,formatted,message) {
+    if(userName==user){
+        dispMe(formatted,user,message);
+    }else{
+        dispOther(formatted,user,message);
+    }
 });
 socket.on('event2', function (data,userName){
     $('#thread').append('<p>'+ userName + data + '<p>');
-    $("#thread").scrollTop( $("#thread")[0].scrollHeight );
+    $('#thread-room').animate({scrollTop: $('#thread-room')[0].scrollHeight}, 'fast');
 });

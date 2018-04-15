@@ -1,39 +1,21 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css">
-<style>
-body{
-    background:#ccd8ff;
-}
-.room-thread{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.input-button{
-    float: right;
-    margin-right: 5px;
-}
-#thread{
-    /* margin-left: 20px; */
-    white-space:normal;
-    background: white;
-    width:500px;
-  height: 300px;
-    overflow: scroll;
-}
-</style>
+<link rel="stylesheet" type="text/css" media="only screen and (max-device-width:480px)" href="/stylesheets/sp.css"/>
+<link rel="stylesheet" type="text/css" media="screen and (min-device-width:481px)" href="/stylesheets/pc.css" />
+
 <body>
 
     <div class="container">
-        <div class="row">
-            <h1>Node Chat チャットルーム</h1>
+        <div class="row ">
+            <h1>Node Chat Room</h1>
             <div class='userList'>
 
             </div>
         </div>
         <div class="row">
             <form method="post" action="/">
-                <div class="room-thread">
+                <div class="room-thread" id="thread-room">
                     <div id="thread"></div>
                 </div>
                 <div class="room-login_user">
@@ -57,7 +39,6 @@ body{
     </div>
 
 </body>
-
 <script src="/javascripts/socket.js"></script>
 <script src="/javascripts/enter.js"></script>
 <script src="/javascripts/publish.js"></script>
