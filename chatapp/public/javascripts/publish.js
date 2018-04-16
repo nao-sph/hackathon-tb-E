@@ -2,8 +2,6 @@
 
 // 投稿メッセージをサーバに送信する
 $( '#message' ).keypress( function ( e ) {
-	// console.log(e.which);
-
 	if ( e.which == 13 ) {
 		// ここに処理を記述
 		if(event.shiftKey){
@@ -11,12 +9,10 @@ $( '#message' ).keypress( function ( e ) {
 			return false;
 		}
         publish();
-
 		return false;
 	}
 } );
 function publish() {
-
   if (document.getElementById('message').value.replace(/\r?\n/g,"") == "" || document.getElementById('message') == null ) {
       alert('空文字またはnullです');
   } else {
@@ -33,19 +29,18 @@ function publish() {
 }
 
 function dispSelf(formatted,userName,message){
-    var str='<div class="kaiwa"><figure class="kaiwa-img-right"><img src="https://i2.wp.com/sozaikoujou.com/wordpress/wp-content/uploads/2016/06/th_app_icon_account.jpg?w=600&ssl=1" alt="no-img2″><figcaption class="kaiwa-img-description">' + userName + '</figcaption></figure><div class="kaiwa-text-left"><p class="kaiwa-text">'+message+'</p></div><div class="kaiwa-time-left">'+formatted+'</div></div>';
+    var str='<div class="kaiwa"><figure class="kaiwa-img-right"><img src="https://i2.wp.com/sozaikoujou.com/wordpress/wp-content/uploads/2016/06/th_app_icon_account.jpg?w=600&ssl=1" alt="no-img2″><figcaption class="kaiwa-img-description"></figcaption></figure><div class="kaiwa-name-right">'+userName+'</div><div class="kaiwa-text-left"><p class="kaiwa-text">'+message+'</p></div><div class="kaiwa-time-left">'+formatted+'</div></div>';
     $('#thread').append(str);
     $('#thread-room').animate({scrollTop: $('#thread-room')[0].scrollHeight}, 'fast');
 }
 function dispOther(formatted,userName,message){
-    var str='<div class="kaiwa"><figure class="kaiwa-img-left"><img src="https://i2.wp.com/sozaikoujou.com/wordpress/wp-content/uploads/2016/06/th_app_icon_account.jpg?w=600&ssl=1" alt="no-img2″><figcaption class="kaiwa-img-description">' +userName + '</figcaption> </figure><div class="kaiwa-text-right"><p class="kaiwa-text">'+message+'</p></div><div class="kaiwa-time-right">'+formatted+'</div></div>';
+    var str='<div class="kaiwa"><figure class="kaiwa-img-left"><img src="https://i2.wp.com/sozaikoujou.com/wordpress/wp-content/uploads/2016/06/th_app_icon_account.jpg?w=600&ssl=1" alt="no-img2″><figcaption class="kaiwa-img-description"></figcaption> </figure><div class="kaiwa-name-left">'+userName+'</div><div class="kaiwa-text-right"><p class="kaiwa-text">'+message+'</p></div><div class="kaiwa-time-right">'+formatted+'</div></div>';
     $('#thread').append(str);
     $('#thread-room').animate({scrollTop: $('#thread-room')[0].scrollHeight}, 'fast');
 }
 // サーバから受信した投稿メッセージを画面上に表示する
 socket.on('event1', function (user,formatted,message) {
 	message=message.replace(/\r?\n/g, '<br>');
-	console.log(message);
     if(userName==user){
         dispSelf(formatted,user,message);
     }else{

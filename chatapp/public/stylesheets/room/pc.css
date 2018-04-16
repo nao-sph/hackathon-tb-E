@@ -46,6 +46,21 @@ figcaption{
   bottom: 15px;
 }
 /* 左からの吹き出しテキスト */
+.kaiwa-name-right {
+  /* font-size: 40px; */
+  text-align: right;
+  position: relative;
+  right: 70px;
+  color: gray;
+}
+
+.kaiwa-name-left {
+  /* font-size: 40px; */
+  text-align: left;
+  position: relative;
+  left: 70px;
+  color: gray;
+}
 .kaiwa-text-right {
   position: relative;
   margin-left: 80px;
@@ -67,6 +82,8 @@ figcaption{
 }
 p.kaiwa-text {
   margin: 0 0 20px;
+  word-wrap: break-word;
+
 }
 p.kaiwa-text:last-child {
   margin-bottom: 0;
@@ -117,6 +134,7 @@ body{
     background:#ccd8ff;
 }
 .room-thread{
+
     border: 5px solid #6b89be;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -124,7 +142,7 @@ body{
     background:#a3c0ec;
     width:500px;
     height: 400px;
-    overflow: scroll;
+    overflow: auto;
 }
 .input-button{
     float: right;
