@@ -10,14 +10,14 @@ module.exports = function (socket, io) {
       var date = new Date();
       var data = ''
 
-      if(userName in postTimeData == true && date.getTime()-postTimeData[userName].getTime() < 60*1000){
-        event1Frag = 0;
-        data += '前回の投稿から1分経過していません。';
-      }
-      if (userName in postTimeData){
-        event1Frag = 0;
-        data += '同じユーザーは連続して投稿できません。';
-      }
+      // if(userName in postTimeData == true && date.getTime()-postTimeData[userName].getTime() < 60*1000){
+      //   event1Frag = 0;
+      //   data += '前回の投稿から1分経過していません。';
+      // }
+      // if (userName in postTimeData){
+      //   event1Frag = 0;
+      //   data += '同じユーザーは連続して投稿できません。';
+      // }
 
       if (event1Frag == 1){
         postTimeData[userName] = date;
