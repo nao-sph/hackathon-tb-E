@@ -9,21 +9,20 @@ module.exports = function (socket, io) {
       var event1Frag = 1;
       var date = new Date();
 
-      if(userName in postTimeData == false)
+      // if(userName in postTimeData == true && date.getTime()-postTimeData[userName].getTime() < 60*1000){
+      //   event1Frag = 0;
+      // }
+
+      if (event1Frag == 1){
         postTimeData[userName] = date;
-
-      if(userName in postTimeData == true && date.getTime()/1000-postTimeData[userName].getTime()/1000 < 60)
-        event1Frag = 0;
-
-      if (event1Frag = 1){
         var formatted = date.toFormat('HH24時MI分');
         const data = '[' + formatted + ']' + userName + 'さん:' + message;
         io.sockets.emit('event1',data);
         console.log(data);
-      } else {
+      } else if (event1Frag == 0){
         socket.emit('alert');
       }
-      console.log(postTimeData);
+      console.log(Math.floor(date.getTime()-postTimeData[userName].getTime()));
     });
     socket.on('event2', function(data,userName){
       io.sockets.emit('event2',data,userName);
