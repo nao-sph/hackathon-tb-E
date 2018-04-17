@@ -24,7 +24,7 @@ socket.on('event1', function (data) {
 });
 
 socket.on('alert', function (data) {
-    alert('前回の投稿から1分以上経っていません');
+    alert(data);
 });
 
 socket.on('event2', function (data,userName){
