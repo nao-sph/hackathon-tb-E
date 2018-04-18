@@ -1,11 +1,11 @@
 'use strict';
 
-module.exports = function (socket, UM) {
+module.exports = function (socket, io, UM) {
 
     // 入室メッセージをクライアントに送信する
     socket.on('enter', function (data) {
         let user = UM.choose(socket.id)
-        user.name = data
+        // user.name = data
         console.log(user);
         user.setName(data)
         user.setEntryTime(new Date())

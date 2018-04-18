@@ -11,4 +11,5 @@ socket.emit('enter', userName)
 socket.on('enter', function (data) {
     $('#thread').append('<p id="enter">' + data.entryUser.name + 'さんが入室しました。</p>');
     $('#thread-room').animate({scrollTop: $('#thread-room')[0].scrollHeight}, 'fast');
+    $('user-list').append(data)
 });

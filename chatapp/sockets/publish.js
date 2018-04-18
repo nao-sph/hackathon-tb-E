@@ -3,27 +3,28 @@ require('date-utils');
 
 var postTimeData = new Array();
 
-module.exports = function (socket, io) {
+module.exports = function (socket, io, UM, MM) {
     // 投稿メッセージを送信する
-    socket.on('event1', function (message,userName) {
+    socket.on('publish', function (message,userName) {
+      const publishSpan = 3 // 連続投稿と見なされる時間[sec]
       var event1Frag = 1;
       var date = new Date();
       var data = ''
 
-      // if(userName in postTimeData == true && date.getTime()-postTimeData[userName].getTime() < 60*1000){
-      //   event1Frag = 0;
-      //   data += '前回の投稿から1分経過していません。';
-      // }
+      if(userName in postTimeData == true && date.getTime() - postTimeData[userName].getTime() < publishSpan * 1000){
+        event1Frag = 0;
+        data += `前回の投稿から${publishSpan}秒経過していません。`;
+      }
       // if (userName in postTimeData){
       //   event1Frag = 0;
-      //   data += '同じユーザーは連続して投稿できません。';
+      //   data += `同じユーザーは連続して投稿できません。`;
       // }
 
       if (event1Frag == 1){
         postTimeData[userName] = date;
         var formatted = date.toFormat('HH24時MI分');
         data = '[' + formatted + ']' + userName + 'さん:' + message;
-        io.sockets.emit('event1',data);
+        io.sockets.emit('publish',data);
         console.log(data);
       } else if (event1Frag == 0){
         socket.emit('alert', data);
