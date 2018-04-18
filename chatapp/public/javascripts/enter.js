@@ -8,20 +8,21 @@ let isFirstEnter = true
 // 入室メッセージイベントを送信する
 socket.emit('enter', userName)
 
-// 自身のenter処理
 socket.on('enter', function (data) {
-    if(isFirstEnter) {
+    if(isFirstEnter) { // 自身のenter処理
       isFirstEnter = false
       $('#thread').append(`<p class="infoMsg">過去のメッセージは${data.MM.max}件まで表示されます</p>`)
       for(let msg of data.MM.list) {
         $('#thread').append(msg)
       }
     }
+    // enter処理
     $('#thread').append(`<p class="enterMsg">${data.entryUser.name}さんが入室しました。</p>`);
     $('#thread-room').animate({scrollTop: $('#thread-room')[0].scrollHeight}, 'fast');
+    // user-listの出力
+    $('#user-list').empty()
+    $('#user-list').append(`<span>login users: </span>`)
     for(let user of data.userList) {
-      $('user-list').append(`<span>${user.name} </span>`)
+      $('#user-list').append(`<span>${user.name} </span>`)
     }
 });
-
-// 他の人のenter処理

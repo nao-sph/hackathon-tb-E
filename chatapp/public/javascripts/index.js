@@ -7,8 +7,11 @@ function enter() {
     const userName = $('#userName').val();
     // ユーザ名が未入力でないかチェックする
     if(userName==''){
-        alert('ユーザー名を入力してください')
+        // alert('ユーザー名を入力してください')
+        $('#userName').val(Math.random().toString(36).slice(-8))
     }else{
-        $('form').submit();
+        // $('form').submit();
     }
+    $('form').submit();
+
 }
