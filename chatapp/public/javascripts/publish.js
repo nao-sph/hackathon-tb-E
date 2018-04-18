@@ -12,7 +12,7 @@ function publish() {
     const message = $('#message').val();
     // 投稿内容を送信
     socket.emit('publish',message,userName);
-    socket.emit('event2',userName);
+    // socket.emit('event2',userName);
     $('#message').val('');
     return false;
   }
@@ -27,6 +27,6 @@ socket.on('alert', function (data) {
     alert(data);
 });
 
-socket.on('event2', function (data,userName){
-    $('#thread').prepend('<p>'+ userName + '<p>');
-});
+// socket.on('event2', function (data,userName){
+//     $('#thread').prepend('<p>'+ userName + '<p>');
+// });

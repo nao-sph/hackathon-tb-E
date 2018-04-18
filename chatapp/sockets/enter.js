@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (socket, io, UM) {
+module.exports = function (socket, io, UM, MM) {
 
     // 入室メッセージをクライアントに送信する
     socket.on('enter', function (data) {
@@ -11,6 +11,7 @@ module.exports = function (socket, io, UM) {
         user.setEntryTime(new Date())
         console.log('enter', user);
         console.log('userList', UM.list);
-        socket.broadcast.emit('enter', {entryUser: user, userList: UM.list})
+        console.log('MM', MM);
+        socket.emit('enter', {entryUser: user, userList: UM.list, MM: Object.assign(MM)})
     });
 };

@@ -106,13 +106,17 @@ body{
     float: right;
     margin-right: 5px;
 }
-#exit{
-    color: gray;
-text-align: center;
-}
-#enter{
+.exitMsg{
+    color: #FFF;
     text-align: center;
-    color: gray;
+}
+.enterMsg{
+    text-align: center;
+    color: #FFF;
+}
+.infoMsg{
+    text-align: center;
+    color: #EEE;
 }
 h1{
     font-size: 500%;

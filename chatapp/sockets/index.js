@@ -46,14 +46,14 @@ module.exports = function (server) {
 
     class MessageManager {
       constructor() {
-        this.msgList = []
+        this.list = []
         this.max = 100 // メッセージの保管数上限
       }
       addMsg (msgObj) {
-        if(this.msgList.length >= this.max){
-          this.msgList.shift()
+        if(this.list.length >= this.max){
+          this.list.shift()
         }
-        this.msgList.push(msgObj)
+        this.list.push(msgObj)
       }
     }
 
@@ -76,7 +76,7 @@ module.exports = function (server) {
         require('./publish')(socket, io, UM, MM);
 
         // 入室モジュールの呼出
-        require('./enter')(socket, io, UM);
+        require('./enter')(socket, io, UM, MM);
 
         // 退室モジュールの呼出
         require('./exit')(socket, io, UM);
