@@ -20,7 +20,7 @@ socket.on('enter', function (data) {
     $('#thread').append(`<p class="enterMsg">${data.entryUser.name}さんが入室しました。</p>`);
     $('#thread-room').animate({scrollTop: $('#thread-room')[0].scrollHeight}, 'fast');
     // user-listの出力
-    $('#user-list').empty()
+    $('#user-list').val('')
     $('#user-list').append(`<span>login users: </span>`)
     for(let user of data.userList) {
       $('#user-list').append(`<span>${user.name} </span>`)
