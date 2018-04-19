@@ -12,7 +12,7 @@ function enter() {
     }else{
         // $('form').submit();
     }
-    $('form').submit();
+    $('#room_submit').submit();
 
 }
 $("select").imagepicker();
