@@ -8,52 +8,51 @@
 
 <body>
 
-    <div class="container">
-        <div class="row">
-            <!-- <h1>Node Chat<span>&nbsp　ver.A-group</span></h1> -->
-            <div class="icon"><img src="/img/linep.png" /></div>
-        </div>
-
-        <div class="row">
-            <form method="post" action="/room">
-                <div class="index-user_name">
-                    <div id="user">
-                    </div>
-                    <input type="text" id="userName" name="userName" class="index-user_name_text" placeholder="Username">
-                    <input type="text" id="passward" class='index-user_pass_text' placeholder="Passward" />
-                    <div class="userIcon">
-                        <select id="imagePicker">
-                            <option data-img-src='/img/icon1.png' value='1'>
-                            <option data-img-src='/img/icon2.png' value='2'>
-                            <option data-img-src='/img/icon3.png' value='3'>
-                            <option data-img-src='/img/icon4.png' value='4'>
-                            <option data-img-src='/img/icon5.png' value='5'>
-                            <option data-img-src='/img/icon6.png' value='6'>
-
-                        </select>
-
-</div>
-                <div class="index-enter">
-                    <input type="button" value="ENTER" class="common-button index-enter_button btn btn-info btn-block" onclick="enter();">
-                </div>
-            </form>
-
-            <form action="/registation" method="post">
-              <div>
-                <label>ユーザーID：</label>
-                <input type="text" name="newUsername"/>
-              </div>
-              <div>
-                <label>パスワード：</label>
-                <input type="password" name="newPassword"/>
-              </div>
-              <div>
-                <input type="submit" value="新規登録"/>
-              </div>
-            </form>
-
-        </div>
+  <div class="container">
+    <div class="row">
+      <!-- <h1>Node Chat<span>&nbsp　ver.A-group</span></h1> -->
+      <div class="icon"><img src="/img/linep.png" /></div>
     </div>
+
+    <div class="row">
+      <form method="post" action="/room">
+        <div class="index-user_name">
+          <div id="user">
+          </div>
+          <input type="text" id="userName" name="userName" class="index-user_name_text" placeholder="Username">
+          <input type="text" id="passward" class='index-user_pass_text' placeholder="Passward" />
+          <div class="userIcon">
+            <select id="imagePicker">
+              <option data-img-src='/img/icon1.png' value='1'>
+              <option data-img-src='/img/icon2.png' value='2'>
+              <option data-img-src='/img/icon3.png' value='3'>
+              <option data-img-src='/img/icon4.png' value='4'>
+              <option data-img-src='/img/icon5.png' value='5'>
+              <option data-img-src='/img/icon6.png' value='6'>
+            </select>
+          </div>
+          <div class="index-enter">
+            <input type="button" value="ENTER" class="common-button index-enter_button btn btn-info btn-block" onclick="enter();">
+          </div>
+        </div>
+      </form>
+
+      <form action="/registation" method="post">
+        <div>
+          <label>ユーザーID：</label>
+          <input type="text" name="newUsername"/>
+        </div>
+        <div>
+          <label>パスワード：</label>
+          <input type="password" name="newPassword"/>
+        </div>
+        <div>
+          <input type="submit" value="新規登録"/>
+        </div>
+      </form>
+
+    </div>
+  </div>
 </body>
 
 <script src="/javascripts/index.js"></script>
