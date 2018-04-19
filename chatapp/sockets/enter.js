@@ -12,6 +12,6 @@ module.exports = function (socket, io, UM, MM) {
         console.log('enter', user);
         console.log('userList', UM.list);
         console.log('MessageList', MM.list);
-        io.sockets.emit('enter', {entryUser: user, UserManager: UM, MessageManager: MM})
+        io.sockets.emit('enter', {user, UM, MM})
     });
 };

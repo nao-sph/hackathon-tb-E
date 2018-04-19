@@ -2,9 +2,11 @@
 
 module.exports = function (socket, io, UM) {
     // 退室メッセージをクライアントに送信する
-    socket.on('exit', function (data) {
-      console.log('exit', data);
-      // UM.
-      socket.broadcast.emit('exit', {name:data, UserManager:UM});
+    socket.on('disconnect', function () {
+      console.log('disconnect', socket.id);
+      let name = UM.choose(socket.id).name
+      console.log('disconnect', name);
+      UM.deleteUser(socket.id)
+      io.sockets.emit('disconnect', {name:name, UserManager:UM});
     });
 };

@@ -12,22 +12,13 @@ socket.emit('enter', {userName:userName, iconInfo:icon})
 socket.on('enter', function (data) {
     if(isFirstEnter) { // 自身のenter処理
       isFirstEnter = false
-      $('#thread').append(`<p class="infoMsg">過去のメッセージは${data.MessageManager.max}件まで表示されます</p>`)
-      for(let msg of data.MessageManager.list) {
-        $('#thread').append(msg)
+      dispSystemMsg(`過去のメッセージは${data.MM.max}件まで表示されます`)
+      for(let msg of data.MM.list) {
+        dispMsg(msg)
       }
     }
     // enter処理
-    $('#thread').append(`<p class="enterMsg">${data.entryUser.name}さんが入室しました。</p>`);
-    $('#thread-room').animate({scrollTop: $('#thread-room')[0].scrollHeight}, 'fast');
+    dispEnterMsg(data.user.name)
     // user-listの出力
-    dispUserList(data.UserManager)
+    dispUserList(data.UM)
 });
-
-function dispUserList(UM){
-  $('#user-list').empty()
-  // $('#user-list').append(`<span>オンラインユーザー: </span><br>`)
-  for(let user of UM.list) {
-    $('#user-list').append(`<span>${user.name}: LastLogin ${user.entryTime}</span><br>`)
-  }
-}

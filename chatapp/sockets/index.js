@@ -9,7 +9,6 @@ module.exports = function (server) {
       constructor () {
         this.list = []
       }
-
       choose (id) {
         for(let user of this.list){
           if(user.id === id) {
@@ -28,19 +27,16 @@ module.exports = function (server) {
         }
         return -1
       }
-      deleteUserbyName (name){
-        let id = this.getIDbyName(name)
-        if(id === -1){
-          console.log(`${name}という名前のユーザーはもともといません`);
-          return
-        }
+      deleteUser (id){
         for(let idx in this.list){
           if(this.list[idx].id === id){
             this.list.splice(idx, 1)
-            console.log(`name:${name},id:${id}というユーザーを削除しました`);
+            console.log(`delete user:${id}`);
+            console.log('UserList', this.list);
             return
           }
         }
+        console.log(`cannot find user:${id}`);
       }
     }
 
@@ -67,7 +63,7 @@ module.exports = function (server) {
         this.list = []
         this.max = 100 // メッセージの保管数上限
       }
-      addMsg (msgObj) {
+      add (msgObj) {
         if(this.list.length >= this.max){
           this.list.shift()
         }
@@ -75,26 +71,18 @@ module.exports = function (server) {
       }
     }
 
-    class Message {
-      constructor (msg, publisherID, time) {
-        this.msg = msg
-        this.publisherID = publisherID
-        this.time = time
-      }
-    }
 
     const UM = new UserManager()
     const MM = new MessageManager()
 
+    // socket接続時
     io.sockets.on('connection', function (socket) {
+        // userの追加
         let user = new User(socket.id)
         UM.newUser(user)
 
         // 投稿モジュールの呼出
         require('./publish')(socket, io, UM, MM);
-
-        // replyモジュールの呼出
-        require('./reply')(socket, io, UM);
 
         // 入室モジュールの呼出
         require('./enter')(socket, io, UM, MM);
