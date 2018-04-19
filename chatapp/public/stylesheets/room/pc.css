@@ -167,17 +167,17 @@ img.icon{
 <<<<<<< Updated upstream
 .exitMsg{
     color: #fff;
-text-align: center;
+/* text-align: center; */
 }
 =======
 .room-exit_button{
-    float: left;
+float: left;
 }
-#exit{
+/* #exit{
     color: gray;
     text-align: center;
 >>>>>>> Stashed changes
-}
+} */
 .enterMsg{
     text-align: center;
     color: #fff;
