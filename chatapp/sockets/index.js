@@ -93,6 +93,9 @@ module.exports = function (server) {
         // 投稿モジュールの呼出
         require('./publish')(socket, io, UM, MM);
 
+        // replyモジュールの呼出
+        require('./reply')(socket, io, UM);
+
         // 入室モジュールの呼出
         require('./enter')(socket, io, UM, MM);
 
