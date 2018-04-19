@@ -28,16 +28,8 @@ img{
 
 }
 
-#imgSelect, #imgSelect option {
-
-    /* background-repeat:no-repeat; */
-    /* text-align: center; */
-    color: rgba(0, 0, 0, 0);
-    height:64px;
-    width: 64px;
-    margin: 0 auto;
-    align-items: center;
-    padding-left:32px;
+#imagePicker{
+    width: 80px;
 }
 #user{
     text-align: left;

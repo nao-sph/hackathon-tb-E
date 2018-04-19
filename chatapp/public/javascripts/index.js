@@ -15,10 +15,4 @@ function enter() {
     $('form').submit();
 
 }
-jQuery(function($) {
-    $('#imgSelect').change(function(){
-        var opt = $('#imgSelect option:selected');
-        var url = opt.css('background-image');
-        $('#imgSelect').css('background-image',url);
-    });
-});
+$("select").imagepicker();
