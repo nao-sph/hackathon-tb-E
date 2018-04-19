@@ -3,17 +3,17 @@
 // 入室メッセージをサーバに送信する
 // 入力されたユーザ名を取得する
 const userName = $('#userName').val();
-const icon = $('#iconInfo').val()
+const icon = $('#userIcon').val()
 let isFirstEnter = true
 
 // 入室メッセージイベントを送信する
-socket.emit('enter', {userName, iconInfo})
+socket.emit('enter', {userName:userName, iconInfo:icon})
 
 socket.on('enter', function (data) {
     if(isFirstEnter) { // 自身のenter処理
       isFirstEnter = false
-      $('#thread').append(`<p class="infoMsg">過去のメッセージは${data.MM.max}件まで表示されます</p>`)
-      for(let msg of data.MM.list) {
+      $('#thread').append(`<p class="infoMsg">過去のメッセージは${data.MessageManager.max}件まで表示されます</p>`)
+      for(let msg of data.MessageManager.list) {
         $('#thread').append(msg)
       }
     }
@@ -23,7 +23,7 @@ socket.on('enter', function (data) {
     // user-listの出力
     $('#user-list').val('')
     $('#user-list').append(`<span>login users: </span>`)
-    for(let user of data.userList) {
-      $('#user-list').append(`<span>${user.name} </span>`)
+    for(let user of data.UserManager.list) {
+      $('#user-list').append(`<span>${user.id} </span>`)
     }
 });

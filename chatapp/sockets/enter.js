@@ -11,7 +11,7 @@ module.exports = function (socket, io, UM, MM) {
         user.setEntryTime(new Date())
         console.log('enter', user);
         console.log('userList', UM.list);
-        console.log('MM', MM);
-        socket.emit('enter', {entryUser: user, userList: UM.list, MM: MM})
+        console.log('MessageList', MM.list);
+        socket.emit('enter', {entryUser: user, UserManager: UM, MessageManager: MM})
     });
 };
