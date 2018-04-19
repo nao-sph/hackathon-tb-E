@@ -2,7 +2,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" media="only screen and (max-device-width:480px)" href="/stylesheets/index/sp.css"/>
 <link rel="stylesheet" type="text/css" media="screen and (min-device-width:481px)" href="/stylesheets/index/pc.css" />
+<script type="text/javascript" src="/javascripts/imageselect.js"></script>
 
+<link href="/stylesheets/imageselect.css" media="screen" rel="stylesheet" type="text/css" />
 <body>
 
     <div class="container">
@@ -17,8 +19,15 @@
                     <div id="user">
                     </div>
                     <input type="text" id="userName" name="userName" class="index-user_name_text" placeholder="Username">
+                    <div class="userIcon">
+                    <select name="logo">
 
-                </div>
+                    <option value="1">http://flat-icon-design.com/f/f_object_108/s64_f_object_108_0bg.png</option>
+                    <option value="2">http://flat-icon-design.com/f/f_object_85/s64_f_object_85_0bg.png</option>
+                    <option value="3">http://flat-icon-design.com/f/f_object_170/s64_f_object_170_0bg.png</option>
+                    <option value="4">http://flat-icon-design.com/f/f_object_88/s512_f_object_88_0bg.png</option>
+                    </select>
+</div>
                 <div class="index-enter">
                     <input type="button" value="ENTER" class="common-button index-enter_button btn btn-info btn-block" onclick="enter();">
                 </div>

@@ -28,7 +28,9 @@ form{
 img{
 
 }
-
+.userIcon{
+    padding: 0 ;
+}
 #user{
     text-align: left;
 }

@@ -15,3 +15,6 @@ function enter() {
     $('form').submit();
 
 }
+$(document).ready(function(){
+ $('select[name=logo]').ImageSelect({dropdownWidth:425});
+ });
