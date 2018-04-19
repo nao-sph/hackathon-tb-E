@@ -3,10 +3,11 @@
 // 入室メッセージをサーバに送信する
 // 入力されたユーザ名を取得する
 const userName = $('#userName').val();
+const icon = $('#iconInfo').val()
 let isFirstEnter = true
 
 // 入室メッセージイベントを送信する
-socket.emit('enter', userName)
+socket.emit('enter', {userName, iconInfo})
 
 socket.on('enter', function (data) {
     if(isFirstEnter) { // 自身のenter処理

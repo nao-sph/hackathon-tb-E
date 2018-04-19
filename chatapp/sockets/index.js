@@ -35,12 +35,16 @@ module.exports = function (server) {
         this.id = id
         this.name = null
         this.entryTime = null
+        this.icon = null
       }
       setName (name) {
         this.name = name
       }
       setEntryTime (time) {
         this.entryTime = time
+      }
+      setIcon (iconInfo) {
+        this.icon = iconInfo
       }
     }
 
