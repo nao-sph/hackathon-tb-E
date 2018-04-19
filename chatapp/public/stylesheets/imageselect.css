@@ -3,7 +3,7 @@
 }
 
 .jqis_header{
-    background-image: url('dropdown_arrow.png');
+    background-image: url('/img/dropdown_arrow.png');
     background-position: right center;
     background-repeat:no-repeat;
     cursor:pointer;

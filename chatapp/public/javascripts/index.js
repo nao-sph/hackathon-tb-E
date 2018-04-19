@@ -15,6 +15,10 @@ function enter() {
     $('form').submit();
 
 }
-$(document).ready(function(){
- $('select[name=logo]').ImageSelect({dropdownWidth:425});
- });
+jQuery(function($) {
+    $('#imgSelect').change(function(){
+        var opt = $('#imgSelect option:selected');
+        var url = opt.css('background-image');
+        $('#imgSelect').css('background-image',url);
+    });
+});

@@ -23,19 +23,21 @@ form{
 .index-user_pass_text{
     width:300px;
 }
-.icon{
-    padding: 0;
-    margin: 50px auto;
-    text-align: center;
-}
+
 img{
 
 }
-.userIcon{
-    padding: 0 ;
-}
-#jq_imageselect_logo{
-    background:;
+
+#imgSelect, #imgSelect option {
+
+    /* background-repeat:no-repeat; */
+    /* text-align: center; */
+    color: rgba(0, 0, 0, 0);
+    height:64px;
+    width: 64px;
+    margin: 0 auto;
+    align-items: center;
+    padding-left:32px;
 }
 #user{
     text-align: left;
