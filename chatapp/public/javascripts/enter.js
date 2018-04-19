@@ -22,8 +22,8 @@ socket.on('enter', function (data) {
     $('#thread-room').animate({scrollTop: $('#thread-room')[0].scrollHeight}, 'fast');
     // user-listの出力
     $('#user-list').val('')
-    $('#user-list').append(`<span>login users: </span>`)
+    // $('#user-list').append(`<span>オンラインユーザー: </span><br>`)
     for(let user of data.UserManager.list) {
-      $('#user-list').append(`<span>${user.id} </span>`)
+      $('#user-list').append(`<span>${user.name}: LastLogin ${user.entryTime}</span><br>`)
     }
 });
