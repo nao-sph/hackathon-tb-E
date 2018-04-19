@@ -1,6 +1,5 @@
 .kaiwa {
   margin-bottom: 50px;
-
 }
 /* 左画像 */
 .kaiwa-img-left {
@@ -56,16 +55,23 @@
 }
 /* 左からの吹き出しテキスト */
 .kaiwa-text-right {
+    max-width: 80%;
+word-wrap: break-word;
   position: relative;
   margin-left: 130px;
   margin-top: -10px;
   padding: 20px;
   border-radius: 70px;
   background: #fff;
+text-align:left;
   float: left;
 }
+
 /* 右からの吹き出しテキスト */
 .kaiwa-text-left {
+    max-width: 80%;
+word-wrap: break-word;
+text-align:left;
   margin-right: 20px;
   padding: 20px;
   border-radius:70px;
@@ -84,60 +90,11 @@ p.kaiwa-text:last-child {
   content: "";
   display: block;
 }
-.memo{
-    background: white;
-    border-radius: 10px;
-}
-body{
-    background:#ccd8ff;
-}
-.room-thread{
-    border: 5px solid #6b89be;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    /* white-space:normal; */
-    background:#a3c0ec;
-    width:100vw;
-    height: 60vh;
-    font-size: 200%;
-    overflow: scroll;
-}
-.input-button{
-    float: right;
-    margin-right: 5px;
-}
-.exitMsg{
-    color: #FFF;
-    text-align: center;
-}
-.enterMsg{
-    text-align: center;
-    color: #FFF;
-}
-.infoMsg{
-    text-align: center;
-    color: #EEE;
-}
-h1{
-    font-size: 500%;
-    text-align: center;
-}
-.common-button{
 
-    font-size: 300%;
-    width: 20%;
-    height: 8vh;
-}
-.room-login_user{
-    font-size: 300%;
-}
-.room-message_textarea{
-    width: 100vw;
-    height: 10vh;
-    font-size: 300%;
-}
-#thread{
-    font-size: 150%;
+body{
+    /* overflow-y: hidden; */
+    background:#ccd8ff;
+    color: #444;
 }
 .container{
     /* text-align: center; */
@@ -147,4 +104,80 @@ h1{
     margin:0px;
     /* padding: 30px; */
     /* margin: 50px auto; */
+}
+.title{
+
+}
+h1{
+    font-size: 100px;
+    text-align: center;
+    position: absolute;
+    left: 300px;
+    top: 30px;
+}
+h1 span{
+    position: relative;
+    top: -40px;
+    font-size: 48px;
+}
+h1 span::before{
+    content: "\A" ;
+    white-space: pre ;
+}
+img.icon{
+    margin: 30px;
+    width: 200px;
+    height: 200px;
+}
+
+.room-thread{
+    border: 5px solid #6b89be;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* white-space:normal; */
+    /* background:#a3c0ec; */
+    background-image: url('/img/back.png');
+    background-size:cover;
+    width:100vw;
+    height: 60vh;
+    font-size: 200%;
+    overflow: scroll;
+    border-radius: 50px;
+}
+#thread{
+    font-size: 150%;
+
+
+}
+.memo{
+    background: white;
+    border-radius: 10px;
+}
+#exit{
+    color: gray;
+text-align: center;
+}
+#enter{
+    text-align: center;
+    color: gray;
+}
+.room-login_user{
+    font-size: 300%;
+}
+.room-message_textarea{
+    border-radius: 30px;
+    width: 100vw;
+    height: 10vh;
+    font-size: 300%;
+}
+.common-button{
+border-radius: 30px;
+    font-size: 300%;
+    width: 20%;
+    height: 8vh;
+}
+
+.input-button{
+    float: right;
+    margin-right: 5px;
 }

@@ -1,16 +1,19 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" media="only screen and (max-device-width:480px)" href="/stylesheets/room/sp.css"/>
-<link rel="stylesheet" type="text/css" media="screen and (min-device-width:481px)" href="/stylesheets/room/pc.css" />
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="only screen and (max-device-width:480px)" href="/stylesheets/room/sp.css"/>
+    <link rel="stylesheet" type="text/css" media="screen and (min-device-width:481px)" href="/stylesheets/room/pc.css" />
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/vnd.microsoft.icon">
+</head>
 
 <body>
 
-    <div class="container">
-        <div class="row ">
-            <h1>Node Chat Room</h1>
+    <div class="container main">
+        <div class="row title">
+            <img src="/img/linep.png" class="icon"/>
+            <h1>LINK<span>~つながるチャットアプリ~</span></h1>
             <div class='userList'>
-
             </div>
         </div>
         <div class="row">
@@ -23,14 +26,18 @@
                   <input id="userName" type="hidden" value="{{userName}}">
                 </div>
                 <div id="user-list">
-                  
+
                 </div>
                 <div class="room-message">
                     <textarea id="message" rows="4" class="room-message_textarea" placeholder="今何してる？"></textarea>
                 </div>
                 <div class="room-submit">
                     <input type="button" value="退室" class="common-button room-exit_button btn btn-info" onclick="exit();">
-                    <input type="button" value="投稿" class="common-button room-publish_button btn btn-info input-button" onclick="publish();">
+<<<<<<< Updated upstream
+                    <!-- <input type="button" value="投稿" class="common-button room-publish_button btn btn-info input-button" onclick="publish();"> -->
+=======
+                    <input type="button" value="投稿" class="common-button room-publish_button btn btn-info input-button btn-lg" onclick="publish();">
+>>>>>>> Stashed changes
                     <input type="button" value="メモ" class="common-button room-memo_button btn btn-info input-button" onclick="memo();">
                 </div>
 
