@@ -28,6 +28,20 @@ module.exports = function (server) {
         }
         return -1
       }
+      deleteUserbyName (name){
+        let id = this.getIDbyName(name)
+        if(id === -1){
+          console.log(`${name}という名前のユーザーはもともといません`);
+          return
+        }
+        for(let idx in this.list){
+          if(this.list[idx].id === id){
+            this.list.splice(idx, 1)
+            console.log(`name:${name},id:${id}というユーザーを削除しました`);
+            return
+          }
+        }
+      }
     }
 
     class User {

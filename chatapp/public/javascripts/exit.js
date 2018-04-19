@@ -16,5 +16,7 @@ function exit() {
 
 // サーバから受信した退室メッセージを画面上に表示する
 socket.on('exit', function (data) {
-    $('#thread').append('<p class="exit">' + data + '</p>');
-    $('#thread-room').animate({scrollTop: $('#thread-room')[0].scrollHeight}, 'fast');});
+    $('#thread').append('<p class="exit">' + data.name + 'さんが退室しました。</p>');
+    $('#thread-room').animate({scrollTop: $('#thread-room')[0].scrollHeight}, 'fast');
+    dispUserList(data.UserManager)
+});

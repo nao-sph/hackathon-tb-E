@@ -3,8 +3,8 @@
 module.exports = function (socket, io, UM) {
     // 退室メッセージをクライアントに送信する
     socket.on('exit', function (data) {
-      data = data + ('さんが退室しました。');
-      console.log(data);
-      socket.broadcast.emit('exit', data);
+      console.log('exit', data);
+      // UM.
+      socket.broadcast.emit('exit', {name:data, UserManager:UM});
     });
 };
