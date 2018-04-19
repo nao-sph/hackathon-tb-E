@@ -34,7 +34,4 @@ module.exports = function (socket, io, UM, MM) {
       console.log(Math.floor(date.getTime()-postTimeData[userName].getTime()));
       console.log(postTimeData[0]);
     });
-    // socket.on('event2', function(msg,userName){
-    //   io.sockets.emit('event2',data,userName);
-    // });
 };
