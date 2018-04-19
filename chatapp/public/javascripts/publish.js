@@ -56,7 +56,7 @@ function dispSelf(formatted,userName,message,imgURL){
 function dispOther(formatted,userName,message,imgURL){
     var str=`<div class="kaiwa">
 				<figure class="kaiwa-img-left">
-					<img src="'+imgURL+'" alt="no-img2″>
+					<img src="${imgURL}" alt="no-img2″>
 					<figcaption class="kaiwa-img-description"></figcaption>
 				</figure>
 				<div class="kaiwa-name-left">${userName}</div>
