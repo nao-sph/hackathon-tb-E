@@ -61,6 +61,8 @@ socket.on('event1', function (user,formatted,message) {
 socket.on('alert', function (data) {
     alert(data);
 });
+$('.line').modaal();
+
 
 // socket.on('event2', function (data,userName){
 //     $('#thread').prepend('<p>'+ userName + '<p>');

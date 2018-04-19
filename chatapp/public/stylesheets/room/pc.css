@@ -228,6 +228,13 @@ h1 span::before{
     border: 5px solid #5642ff;
 border-radius: 30px;
 }
+/* .line{
+    background-image: url("/img/linep.png");
+
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+} */
 /* .main{
     background: white;
     margin: 100px;

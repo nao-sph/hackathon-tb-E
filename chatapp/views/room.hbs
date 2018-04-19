@@ -1,19 +1,32 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/modaal.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="/javascripts/modaal.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/modaal/0.3.1/css/modaal.min.css"> -->
+    <!-- <script src="//cdn.jsdelivr.net/modaal/0.3.1/dist/js/modaal.min.js"></script> -->
     <link rel="stylesheet" type="text/css" media="only screen and (max-device-width:480px)" href="/stylesheets/room/sp.css"/>
     <link rel="stylesheet" type="text/css" media="screen and (min-device-width:481px)" href="/stylesheets/room/pc.css" />
+
+
+
 </head>
 
 <body>
 
     <div class="container main">
         <div class="row title">
-            <img src="/img/linep.png" class="icon"/>
+
+            <!-- <input id='modaal' type="button"></input> -->
+            <a href="#modal" class="line"><img src="/img/linep.png" class="icon"/></a>
+
             <h1>LINK<span>~つながるチャットアプリ~</span></h1>
             <div class='userList'>
             </div>
+        </div>
+        <div id="modal" style="display:none;">
+	           <p id="user-list"></p>
         </div>
         <div class="row">
             <form method="post" action="/">
@@ -24,14 +37,14 @@
                   {{userName}}
                   <input id="userName" type="hidden" value="{{userName}}">
                 </div>
-                <div id="user-list">
+                <!-- <div id="user-list">
 
-                </div>
+                </div> -->
                 <div class="room-message">
                     <textarea id="message" rows="4" class="room-message_textarea" placeholder="今何してる？"></textarea>
                 </div>
                 <div class="room-submit">
-                    <input type="button" value="退室" class="common-button room-exit_button btn btn-info" onclick="exit();">
+                    <input type="button" value="退室" class="common-button room-exit_button btn btn-denger" onclick="exit();">
                     <!-- <input type="button" value="投稿" class="common-button room-publish_button btn btn-info input-button" onclick="publish();"> -->
                     <input type="button" value="投稿" class="common-button room-publish_button btn btn-info input-button btn-lg" onclick="publish();">
                     <input type="button" value="メモ" class="common-button room-memo_button btn btn-info input-button" onclick="memo();">
