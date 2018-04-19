@@ -20,6 +20,9 @@ form{
 .index-user_name_text{
     width:300px;
 }
+.index-user_pass_text{
+    width:300px;
+}
 .icon{
     padding: 0;
     margin: 50px auto;
@@ -30,6 +33,9 @@ img{
 }
 .userIcon{
     padding: 0 ;
+}
+#jq_imageselect_logo{
+    background:;
 }
 #user{
     text-align: left;
