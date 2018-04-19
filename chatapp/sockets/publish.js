@@ -25,6 +25,8 @@ module.exports = function (socket, io, UM, MM) {
         var formatted = date.toFormat('HH24時MI分');
         msg = '[' + formatted + ']' + userName + 'さん:' + message;
         io.sockets.emit('publish',msg);
+        var formatted = date.toFormat('HH24:MI')
+        io.sockets.emit('event1',userName,formatted,message);
         console.log(msg);
       } else {
         socket.emit('alert', msg);

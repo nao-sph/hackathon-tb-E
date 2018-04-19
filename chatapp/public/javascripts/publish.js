@@ -1,8 +1,7 @@
 'use strict';
 
 // 投稿メッセージをサーバに送信する
-<<<<<<< Updated upstream
-=======
+
 $( '#message' ).keypress( function ( e ) {
 	if ( e.which == 13 ) {
 		// ここに処理を記述
@@ -15,7 +14,6 @@ $( '#message' ).keypress( function ( e ) {
 	}
 } );
 
->>>>>>> Stashed changes
 function publish() {
 
   if (document.getElementById('message').value.replace(/\r?\n/g,"") == "" || document.getElementById('message') == null ) {
@@ -33,11 +31,10 @@ function publish() {
   }
 }
 
-<<<<<<< Updated upstream
 // サーバから受信した投稿メッセージを画面上に表示する
 // socket.on('publish', function (data) {
 //     $('#thread').prepend('<p>' + data + '</p>');
-=======
+
 function dispSelf(formatted,userName,message,imgURL){
     var str='<div class="kaiwa"><figure class="kaiwa-img-right"><img src="'+imgURL+'" alt="no-img2″><figcaption class="kaiwa-img-description"></figcaption></figure><div class="kaiwa-name-right">'+userName+'</div><div class="kaiwa-text-left"><p class="kaiwa-text">'+message+'</p></div><div class="kaiwa-time-left">'+formatted+'</div></div>';
     $('#thread').append(str);
@@ -59,7 +56,6 @@ socket.on('event1', function (user,formatted,message) {
     }else{
         dispOther(formatted,user,message,img);
     }
->>>>>>> Stashed changes
 });
 
 socket.on('alert', function (data) {
