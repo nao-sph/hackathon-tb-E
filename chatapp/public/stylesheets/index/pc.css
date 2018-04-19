@@ -1,37 +1,34 @@
 body{
 
-    background:#ccd8ff;
+    background:#c2bee6;
 }
 .container{
-    background: white;
-    text-align: center;
-    vertical-align: bottom;
-    width: 500px;
-    height: 500px
-    padding: 30px;
-    margin: 50px auto;
-    border-radius: 20px;
+
 }
 .row{
-    padding: 10px;
-    text-align: center;
+
 }
 .index-enter {
-    padding: 20px;
+    padding-top: 20px;
     text-align: left;
 }
-.index-user_name{
-    padding-left: 20px;
-    border-radius: 10px;
+form{
+    width:300px;
+    margin: 50px auto;
+    float:center;
 }
-span{
-    font-size: 30px;
-    color : #b299ff;
+.index-user_name_text{
+    width:300px;
 }
-h1{
-    width: 100%;
+.icon{
+    padding: 0;
+    margin: 50px auto;
     text-align: center;
 }
+img{
+
+}
+
 #user{
     text-align: left;
 }

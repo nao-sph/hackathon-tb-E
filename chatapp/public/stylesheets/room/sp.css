@@ -157,7 +157,7 @@ img.icon{
     color: gray;
 text-align: center;
 }
-#enter{
+.enterMsg{
     text-align: center;
     color: gray;
 }
@@ -180,4 +180,10 @@ border-radius: 30px;
 .input-button{
     float: right;
     margin-right: 5px;
+}
+#user-list{
+    font-size: 50px;
+}
+.modaal-container{
+    border-radius: 30px;
 }
