@@ -14,7 +14,7 @@ $( '#message' ).keypress( function ( e ) {
 } );
 
 function publish() {
-  if (document.getElementById('message').value.replace(/\r?\n/g,"") == "" || document.getElementById('message') == null ) {
+  if ($('#message').val().replace(/\r?\n/g,"") === "" || $('#message') === null ) {
       alert('投稿文を入力してください');
   } else {
     // 入力されたメッセージを取得
