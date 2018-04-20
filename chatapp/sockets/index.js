@@ -8,6 +8,7 @@ module.exports = function (server) {
     class UserManager {
       constructor () {
         this.list = []
+        this.pastList = []
       }
       choose (id) {
         for(let user of this.list){
@@ -29,14 +30,18 @@ module.exports = function (server) {
       }
       deleteUser (id){
         for(let idx in this.list){
-          if(this.list[idx].id === id){
+          let user = this.list[idx]
+          if(user.id === id){
+            this.pastList.push(user)
             this.list.splice(idx, 1)
             console.log(`delete user:${id}`);
             console.log('UserList', this.list);
-            return
+            console.log('deletedUserList', this.pastList);
+            return user
           }
         }
         console.log(`cannot find user:${id}`);
+        return -1
       }
     }
 
@@ -45,6 +50,7 @@ module.exports = function (server) {
         this.id = id
         this.name = null
         this.entryTime = null
+        this.exitTime = null
         this.icon = null
       }
       setName (name) {
@@ -52,6 +58,9 @@ module.exports = function (server) {
       }
       setEntryTime (time) {
         this.entryTime = time
+      }
+      serExitTime (time) {
+        this.exitTime = time
       }
       setIcon (iconInfo) {
         this.icon = iconInfo

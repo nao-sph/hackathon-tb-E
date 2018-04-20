@@ -21,6 +21,8 @@ socket.on('enter', function (data) {
           case 'enter':
             dispEnterMsg(msg.data)
             break
+          case 'exit':
+            dispExitMsg(msg.data)
             break
           case 'system':
             dispSystemMsg(msg.data)
@@ -31,7 +33,7 @@ socket.on('enter', function (data) {
       }
     }
     // enter処理
-    dispEnterMsg(data.user.name)
+    dispEnterMsg(user)
     // user-listの出力
     dispUserList(data.UM)
 });

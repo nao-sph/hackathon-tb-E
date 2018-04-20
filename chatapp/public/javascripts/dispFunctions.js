@@ -4,13 +4,13 @@
   チャット内表示
 ****/
 // 入室メッセージ
-function dispEnterMsg (name) {
-  $('#thread').append(`<p class="enterMsg">${name}さんが入室しました。</p>`);
+function dispEnterMsg (user) {
+  $('#thread').append(`<p class="enterMsg">${user.entryTime}: ${user.name}さんが入室しました。</p>`);
   scrollTop()
 }
 // 退室メッセージ
-function dispExitMsg (name) {
-  $('#thread').append(`<p class="enterMsg">${name}さんが退室しました。</p>`);
+function dispExitMsg (user) {
+  $('#thread').append(`<p class="enterMsg">${user.exitTime}: ${user.name}${name}さんが退室しました。</p>`);
   scrollTop()
 }
 // システムメッセージ
