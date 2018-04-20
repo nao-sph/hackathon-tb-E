@@ -63,7 +63,11 @@ module.exports = function (server) {
         this.list = []
         this.max = 100 // メッセージの保管数上限
       }
-      add (msgObj) {
+      add (msg, type) {
+        let msgObj = {
+          type: type,
+          data: msg
+        }
         if(this.list.length >= this.max){
           this.list.shift()
         }

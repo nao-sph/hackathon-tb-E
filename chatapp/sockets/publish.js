@@ -43,7 +43,7 @@ module.exports = function (socket, io, UM, MM) {
       if (isAblePublish){
         postTimeData[socket.id] = date;
         data = withErr(false, null, Msg)
-        MM.add(Msg)
+        MM.add(Msg, 'msg')
         io.sockets.emit('publish', data);
       } else {
         socket.emit('publish', data)

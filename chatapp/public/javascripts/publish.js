@@ -5,7 +5,8 @@ $( '#message' ).keypress( function ( e ) {
 	if ( e.which == 13 ) {
 		// ここに処理を記述
 		if(event.shiftKey){
-			$('#message').val()=$('#message').val()+'\n';
+			$('#message').val($('#message').val()+'\n')
+			msgEvent()
 			return false;
 		}
     publish();
@@ -13,7 +14,7 @@ $( '#message' ).keypress( function ( e ) {
 	}
 } );
 
-function publish() {
+function publish () {
   if ($('#message').val().replace(/\r?\n/g,"") === "" || $('#message') === null ) {
       alert('投稿文を入力してください');
   } else {
