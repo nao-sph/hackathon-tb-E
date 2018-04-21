@@ -15,6 +15,6 @@ function exit() {
 
 // サーバから受信した退室メッセージを画面上に表示する
 socket.on('disconnect', function (data) {
-    dispEnterMsg(data.user)
-    dispUserList(data.UserManager)
+    dispExitMsg(data.user)
+    dispUserList(data.UM)
 });

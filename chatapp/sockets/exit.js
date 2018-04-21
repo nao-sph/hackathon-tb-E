@@ -1,12 +1,13 @@
 'use strict';
 
-module.exports = function (socket, io, UM) {
+require('date-utils');
+
+module.exports = function (socket, io, UM, MM) {
     // 退室メッセージをクライアントに送信する
     socket.on('disconnect', function () {
-      console.log('disconnect', socket.id);
-      let name = UM.choose(socket.id).name
-      console.log('disconnect', name);
-      let user = UM.deleteUser(socket.id)
+      let user = UM.deleteUser(socket.id, (new Date()).toFormat('HH24:MI'))
+      MM.add(user, 'exit')
       io.sockets.emit('disconnect', {user, UM});
+      console.log('disconnect', user);
     });
 };

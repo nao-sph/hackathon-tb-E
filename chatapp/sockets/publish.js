@@ -1,4 +1,5 @@
 'use strict';
+
 require('date-utils');
 
 var postTimeData = new Array();

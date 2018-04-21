@@ -31,9 +31,10 @@ socket.on('enter', function (data) {
 
         }
       }
+    } else {
+      // 他の人のenterを表示
+      dispEnterMsg(data.user)
     }
-    // enter処理
-    dispEnterMsg(user)
     // user-listの出力
     dispUserList(data.UM)
 });

@@ -5,12 +5,12 @@
 ****/
 // 入室メッセージ
 function dispEnterMsg (user) {
-  $('#thread').append(`<p class="enterMsg">${user.entryTime}: ${user.name}さんが入室しました。</p>`);
+  $('#thread').append(`<p class="enterMsg">${user.entryTime} ${user.name}さんが入室しました。</p>`);
   scrollTop()
 }
 // 退室メッセージ
 function dispExitMsg (user) {
-  $('#thread').append(`<p class="enterMsg">${user.exitTime}: ${user.name}${name}さんが退室しました。</p>`);
+  $('#thread').append(`<p class="enterMsg">${user.exitTime} ${user.name}${name}さんが退室しました。</p>`);
   scrollTop()
 }
 // システムメッセージ

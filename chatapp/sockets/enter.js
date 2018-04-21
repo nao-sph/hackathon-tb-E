@@ -8,7 +8,8 @@ module.exports = function (socket, io, UM, MM) {
         console.log(user);
         user.setName(data.userName)
         user.setIcon(data.iconInfo)
-        user.setEntryTime(new Date())
+        user.setEntryTime((new Date()).toFormat('HH24:MI'))
+        MM.add(user, 'enter')
         console.log('enter', user);
         console.log('userList', UM.list);
         console.log('MessageList', MM.list);

@@ -28,10 +28,11 @@ module.exports = function (server) {
         }
         return -1
       }
-      deleteUser (id){
+      deleteUser (id, time){
         for(let idx in this.list){
           let user = this.list[idx]
           if(user.id === id){
+            user.serExitTime(time)
             this.pastList.push(user)
             this.list.splice(idx, 1)
             console.log(`delete user:${id}`);
@@ -101,6 +102,6 @@ module.exports = function (server) {
         require('./enter')(socket, io, UM, MM);
 
         // 退室モジュールの呼出
-        require('./exit')(socket, io, UM);
+        require('./exit')(socket, io, UM, MM);
     });
 };
