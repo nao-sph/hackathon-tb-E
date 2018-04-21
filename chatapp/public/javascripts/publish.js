@@ -6,7 +6,6 @@ $( '#message' ).keypress( function ( e ) {
 		// ここに処理を記述
 		if(event.shiftKey){
 			$('#message').val($('#message').val()+'\n')
-			msgEvent()
 			return false;
 		}
     publish();
@@ -21,10 +20,19 @@ function publish () {
     // 入力されたメッセージを取得
     const message = $('#message').val();
     // 投稿内容を送信
-    socket.emit('publish',{message});
+		socket.emit('publish',{message});
+		msgEvent(message)
     $('#message').val('');
     return false;
   }
+}
+
+// @bot
+function msgEvent (str){
+	let args = str.split(' ')
+	if(args[0] === '@bot') {
+		socket.emit(args[1], args[2])
+	}
 }
 
 // サーバから受信した投稿メッセージを画面上に表示する
@@ -37,6 +45,17 @@ socket.on('publish', function (data) {
 	}
 	dispMsg(data.data)
 });
+
+// botのメッセージ表示
+socket.on('bot', (data) => {
+  // let botInfo = data.botInfo
+  // let msg = data.msg
+	// if(msg === null) {
+  //   msg = world
+	// }
+	dispMsg(data)
+})
+
 
 // 多分ユーザーリストの表示？
 $('.line').modaal();

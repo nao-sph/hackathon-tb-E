@@ -97,6 +97,8 @@ module.exports = function (server) {
         let user = new User(socket.id)
         UM.newUser(user)
 
+        require('./bot-hello')(socket, io, UM, MM)
+
         // 投稿モジュールの呼出
         require('./publish')(socket, io, UM, MM);
 
