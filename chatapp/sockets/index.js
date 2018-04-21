@@ -72,6 +72,7 @@ module.exports = function (server) {
       constructor() {
         this.list = []
         this.max = 100 // メッセージの保管数上限
+        this.isMax = false
       }
       add (msg, type) {
         let msgObj = {
@@ -79,6 +80,7 @@ module.exports = function (server) {
           data: msg
         }
         if(this.list.length >= this.max){
+          this.isMax = true
           this.list.shift()
         }
         this.list.push(msgObj)
