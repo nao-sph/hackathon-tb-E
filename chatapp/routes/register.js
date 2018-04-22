@@ -16,15 +16,21 @@ router.post('/', function(req, res, next) {
   var password = req.body.newPassword;
 
   console.log(userName);
+  console.log(password);
 
-  //登録
-  db.run('insert into userdata(name,password) values($un, pwd)',
-    {
-      $un:userName,
-      $pwd:password
-    }
-  );
-  db.close();
+  if (!userName.replace(/\r?\n/g,"") === ""
+    && !password.replace(/\r?\n/g,"") === ""
+    || !userName === null
+    || !password === null) {
+    //登録
+    db.run('insert into userdata(name,password) values($un, $pwd)',
+      {
+        $un:userName,
+        $pwd:password
+      }
+    );
+    db.close();
+  }
   res.redirect('/');
 });
 
