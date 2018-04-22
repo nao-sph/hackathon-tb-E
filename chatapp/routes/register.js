@@ -9,8 +9,6 @@ router.get('/', function(req, res, next) {
   res.render('register');
 });
 
-console.log('hello');
-
 router.post('/', function(req, res, next) {
   var userName = req.body.newUserName;
   var password = req.body.newPassword;
@@ -18,10 +16,24 @@ router.post('/', function(req, res, next) {
   console.log(userName);
   console.log(password);
 
-  if (!userName.replace(/\r?\n/g,"") === ""
-    && !password.replace(/\r?\n/g,"") === ""
-    || !userName === null
-    || !password === null) {
+  var isNameResistation =
+    db.run('select * from userdata where name=$un limit 1',
+    {$un:userName});
+
+    console.log(isNameResistation);
+
+  if (userName.replace(/\r?\n/g,"") === ""
+    || password.replace(/\r?\n/g,"") === ""
+    || userName === null
+    || password === null) {
+    res.render('register', {
+      alert:'入力していない項目があります'
+    });
+  } else if (isNameResistation){
+    res.render('register', {
+      alert:'登録済みの名前です'
+    });
+  } else {
     //登録
     db.run('insert into userdata(name,password) values($un, $pwd)',
       {
@@ -29,9 +41,11 @@ router.post('/', function(req, res, next) {
         $pwd:password
       }
     );
-    db.close();
   }
-  res.redirect('/');
+  if(!isNameResistation){
+    db.close();
+    res.redirect('/');
+  }
 });
 
 module.exports = router;
