@@ -25,8 +25,8 @@ module.exports = function (socket, io, UM, MM) {
     }
     msg = `Hello ${msg}!`
 
-    data = new Message(msg, (new Date()).toFormat('HH24:MI'))
-    MM.add(data, 'msg') // データの整形
+    data = new Message(msg, (new Date()).toFormat('HH24:MI')) // データの整形
+    MM.add(data, 'msg')
     io.sockets.emit('bot', data) // botイベント
   })
 }
