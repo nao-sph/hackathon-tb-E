@@ -21,18 +21,9 @@ function publish () {
     const message = $('#message').val();
     // 投稿内容を送信
 		socket.emit('publish',{message});
-		msgEvent(message)
     $('#message').val('');
     return false;
   }
-}
-
-// @bot
-function msgEvent (str){
-	let args = str.split(' ')
-	if(args[0] === '@bot') {
-		socket.emit(args[1], args.slice(2))
-	}
 }
 
 // サーバから受信した投稿メッセージを画面上に表示する
@@ -44,15 +35,19 @@ socket.on('publish', function (data) {
 		return
 	}
 	dispMsg(data.data)
+	msgEvent(data.data.msg)
 });
+
+// @bot
+function msgEvent (str){
+	let args = str.split(' ')
+	if(args[0] === '@bot') {
+		socket.emit(args[1], args.slice(2))
+	}
+}
 
 // botのメッセージ表示
 socket.on('bot', (data) => {
-  // let botInfo = data.botInfo
-  // let msg = data.msg
-	// if(msg === null) {
-  //   msg = world
-	// }
 	dispMsg(data)
 })
 
