@@ -17,14 +17,16 @@ class Message {
 }
 
 module.exports = function (socket, io, UM, MM) {
-  socket.on('keyword2', (data) => { // keywordは自分で設定する
-    let msg = data[0]
+    socket.on('calc', (data) => { // keywordは自分で設定する
+        if(/[A-Za-z_]/.test(data[0])==true){
+            var msg='使用できない文字が含まれています';
+        }else{
+            var msg=eval(data[0]);
+        }
 
-    // ここに処理を書く
 
-
-    data = new Message(msg, (new Date()).toFormat('HH24:MI')) // データの整形
-    MM.add(data, 'msg')
-    io.sockets.emit('bot', data) // botイベント
-  })
+      data = new Message(msg, (new Date()).toFormat('HH24:MI')) // データの整形
+      MM.add(data, 'msg')
+      io.sockets.emit('bot', data) // botイベント
+    })
 }

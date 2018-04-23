@@ -27,4 +27,6 @@ module.exports = function (socket, io, UM, MM) {
     MM.add(data, 'msg')
     io.sockets.emit('bot', data) // botイベント
   })
+
+
 }
