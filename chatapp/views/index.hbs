@@ -19,8 +19,8 @@
         <div class="index-user_name">
           <div id="user">
           </div>
-          <input type="text" id="userName" name="userName" class="index-user_name_text" placeholder="Username">
-          <input type="text" id="password" class='index-user_pass_text' placeholder="Password" />
+          <label id="userName" name="userName">{{userName}}</label>
+          <!-- <input type="text" id="userName" name="userName" class="index-user_name_text" placeholder="Username"> -->
           <div class="userIcon">
             <select id="imagePicker">
               <option data-img-src='/img/icon1.png' value='1'>
@@ -34,10 +34,13 @@
           <div class="index-enter">
             <input type="button" value="ENTER" class="common-button index-enter_button btn btn-info btn-block" onclick="enter();">
           </div>
+          <div>
+            {{alert}}
+          </div>
         </div>
       </form>
       <form id="transition_register" action="/register">
-        <input type="submit" value="新規会員登録"/>
+        <input type="submit" value="新規登録"/>
       </form>
     </div>
   </div>

@@ -5,7 +5,9 @@ const router = express.Router();
 
 // ログイン画面の表示
 router.get('/', function(request, response, next) {
-    response.render('index');
+    response.render('index',{
+      userName:request.session.user
+    });
 });
 
 // チャット画面の表示

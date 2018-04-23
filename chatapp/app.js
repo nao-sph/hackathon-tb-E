@@ -6,10 +6,12 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 
 const routes = require('./routes/index');
 const register = require('./routes/register');
+const login = require('./routes/login');
 
 const app = express();
 
@@ -25,9 +27,31 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+var sessionMiddleware = session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+  httpOnly: false,
+  secure: false,
+  maxAge: 30 * 60 * 1000
+  }
+});
+app.session = sessionMiddleware;
 
+app.use(sessionMiddleware);
+
+var sessionCheck = function(req, res, next) {
+  if(req.session.id && req.session.user && req.session.password) {
+    next();
+  } else {
+    res.redirect('/login');
+  }
+};
+
+app.use('/login',login);
 app.use('/register',register);
+app.use('/', sessionCheck, routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

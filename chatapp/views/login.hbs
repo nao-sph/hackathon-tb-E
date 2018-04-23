@@ -1,0 +1,28 @@
+<body>
+  <div class="wrap">
+    <div>
+      <label>ログイン</label>
+    </div>
+    <form id="login_submit" method="post" action="/login">
+      <div>
+        <label>ユーザーID：</label>
+        <input type="text" id='UserName' name="UserName"/>
+      </div>
+      <div>
+        <label>パスワード：</label>
+        <input type="password" id='Password' name="Password"/>
+      </div>
+      <div>
+        <input type="submit" value="ログイン"/>
+      </div>
+    </form>
+    <div>
+      {{alert}}
+    </div>
+    <form id="transition_register" action="/register">
+      <div>
+        <input type="submit" value="新規登録"/>
+      </div>
+    </form>
+  </div>
+</body>
