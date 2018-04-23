@@ -31,7 +31,7 @@ function publish () {
 function msgEvent (str){
 	let args = str.split(' ')
 	if(args[0] === '@bot') {
-		socket.emit(args[1], args[2])
+		socket.emit(args[1], args.slice(2))
 	}
 }
 

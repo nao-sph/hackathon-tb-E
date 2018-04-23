@@ -19,7 +19,7 @@ class Message {
 module.exports = function (socket, io, UM, MM) {
   socket.on('hello', (data) => {
     console.log('hello', data);
-    let msg = data
+    let msg = data[0]
     if(msg === null || msg === undefined){
       msg = 'Link'
     }
