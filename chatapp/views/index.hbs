@@ -14,12 +14,12 @@
       <div class="icon"><img src="/img/linep.png" /></div>
     </div>
 
-    <div class="row">
+    <div class="row form">
       <form id="room_submit" method="post" action="/room">
         <div class="index-user_name">
           <div id="user">
           </div>
-          <label id="userName" name="userName">{{userName}}</label>
+          <!-- <label id="userName" name="userName">{{userName}}</label> -->
           <!-- <input type="text" id="userName" name="userName" class="index-user_name_text" placeholder="Username"> -->
           <div class="userIcon">
             <select id="imagePicker">
@@ -38,10 +38,11 @@
             {{alert}}
           </div>
         </div>
+        <input type="button" value="新規登録" id="transition_register" class="btn btn-link " onclick="location.href='/register'"/>
       </form>
-      <form id="transition_register" action="/register">
+      <!-- <form id="transition_register" action="/register">
         <input type="submit" value="Sign up"class="btn btn-link"/>
-      </form>
+      </form> -->
     </div>
   </div>
 </body>

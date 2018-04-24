@@ -1,0 +1,17 @@
+body{
+    background:#c2bee6;
+}
+.wrap{
+    text-align: center;
+}
+#registation_submit{
+    position: relative;
+    right: 10%;
+}
+#transition_login{
+    position: relative;
+    right: 7%;
+}
+.loginLink{
+        font-size: 20px;
+}

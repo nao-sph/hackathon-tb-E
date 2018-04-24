@@ -1,0 +1,25 @@
+body{
+    background:#c2bee6;
+}
+.wrap{
+    /* position: relative;
+    left: 50%;
+    transform:translateX(-50%); */
+    text-align: center;
+}
+.loginLabel{
+    position: relative;
+    right: 10%;
+}
+#login_submit{
+    position: relative;
+    right: 10%;
+}
+.signUp{
+    font-size: 20px;
+
+}
+#transition_register{
+    position: relative;
+    right:10%;
+}

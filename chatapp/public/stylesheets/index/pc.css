@@ -23,11 +23,25 @@ form{
 .index-user_pass_text{
     width:300px;
 }
-
-img{
-
+.userIcon{
+    position: relative;
+    left: 20px;
 }
-
+.icon{
+    position: relative;
+     /* top: 50%; */
+     left: 50%;
+     transform:translateX(-50%);
+     -webkit- transform:translateX(-50%);
+}
+.form{
+    position: relative;
+     /* top: 50%; */
+     left: 50%;
+     transform:translateX(-50%);
+     -webkit- transform:translateX(-50%);
+}
+}
 #imagePicker{
     width: 80px;
 }

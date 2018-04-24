@@ -1,5 +1,13 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/stylesheets/register.css"/>
+
 <body>
-  <div class="wrap">
+  <div class="wrap container">
+      <div>
+        <div class="icon"><img src="/img/linep.png" /></div>
+      </div>
     <form id="registation_submit" method="post" action="/register">
       <div>
         <label>ユーザーID：</label>
@@ -10,7 +18,7 @@
         <input type="password" id='newPassword' name="newPassword"/>
       </div>
       <div>
-        <input type="submit" value="新規登録"/>
+        <input type="submit" value="新規登録" class="btn btn-info"/>
       </div>
     </form>
     <div>
@@ -18,7 +26,7 @@
     </div>
     <form id="transition_login" action="/login">
       <div>
-        <input type="submit" value="ログイン画面"/>
+        <input type="submit" value="ログイン画面" class="btn btn-link loginLink"/>
       </div>
     </form>
   </div>
