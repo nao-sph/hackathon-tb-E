@@ -85,7 +85,7 @@ function dispOther (data){
 				<div class="kaiwa-time-right">${data.time}</div>
 			</div>`;
     $('#thread').append(str);
-       //var notification = new Notification(`${user.Name} ${data.msg}`);
+       var notification = new Notification(`${data.user.name} ${data.msg}`);
 }
 
 function scrollTop () {
