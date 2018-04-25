@@ -8,8 +8,7 @@ router.get('/', function(request, response, next) {
     response.render('index',{
       //userName:request.session.user
     });
-    var form = document.forms.room_submit;
-    form.userName.value = request.session.user;
+    document.getElementById('userName').value = request.session.user;
 });
 
 // チャット画面の表示
