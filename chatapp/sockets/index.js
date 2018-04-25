@@ -101,7 +101,7 @@ module.exports = function (server) {
         require('./bot/list')(socket, io, UM, MM)
         require('./bot/rename')(socket, io, UM, MM)
         require('./bot/calc')(socket, io, UM, MM)
-        require('./bot/func3')(socket, io, UM, MM)
+        require('./bot/help')(socket, io, UM, MM)
 
         // 投稿モジュールの呼出
         require('./publish')(socket, io, UM, MM);
