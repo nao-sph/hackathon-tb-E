@@ -13,27 +13,7 @@ socket.emit('enter', {userName:userName, iconInfo:icon})
 socket.on('enter', function (data) {
     if(isFirstEnter) { // 自身のenter処理
       isFirstEnter = false
-      if(data.MM.isMax) {
-        dispSystemMsg(`過去のメッセージは${data.MM.max}件までしか表示されません`)
-      }
-      for(let msg of data.MM.list) {
-        switch(msg.type) {
-          case 'msg':
-            dispMsg(msg.data)
-            break
-          case 'enter':
-            dispEnterMsg(msg.data)
-            break
-          case 'exit':
-            dispExitMsg(msg.data)
-            break
-          case 'system':
-            dispSystemMsg(msg.data)
-            break
-          default:
-
-        }
-      }
+      dispAll(data)
     } else {
       // 他の人のenterを表示
       dispEnterMsg(data.user)

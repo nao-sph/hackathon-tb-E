@@ -1,11 +1,7 @@
 'use strict'
 
-
-// $('#message').overlay([
-//     {
-//         match: /\B@\w+/g,
-//         css: {
-//             'background-color': '#d8dfea'
-//         }
-//     }
-// ])
+socket.on('name change', (data) => {
+  dispClear()
+  dispAll(data)
+  dispUserList(data.UM)
+})

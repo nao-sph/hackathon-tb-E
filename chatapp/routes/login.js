@@ -39,7 +39,8 @@ router.post('/', function(req, res, next) {
         req.session.user = name;
         req.session.password = password;
         console.log('ID : ' + req.session.id + ' name : ' + req.session.name + ' pwd : ' + req.session.password);
-        res.redirect('../');
+        // res.redirect('../');
+        res.render('index',{userName});
       } else {
         res.render('login',{
           alert:'名前もしくはパスワードが間違っています'

@@ -3,6 +3,30 @@
 /****
   チャット内表示
 ****/
+
+function dispAll(data) {
+  if(data.MM.isMax) {
+    dispSystemMsg(`過去のメッセージは${data.MM.max}件までしか表示されません`)
+  }
+  for(let msg of data.MM.list) {
+    switch(msg.type) {
+      case 'msg':
+        dispMsg(msg.data)
+        break
+      case 'enter':
+        dispEnterMsg(msg.data)
+        break
+      case 'exit':
+        dispExitMsg(msg.data)
+        break
+      case 'system':
+        dispSystemMsg(msg.data)
+        break
+      default:
+
+    }
+  }
+}
 // 入室メッセージ
 function dispEnterMsg (user) {
   $('#thread').append(`<p class="enterMsg">${user.entryTime} ${user.name}さんが入室しました。</p>`);
@@ -17,6 +41,11 @@ function dispExitMsg (user) {
 function dispSystemMsg (msg) {
   $('#thread').append(`<p class="infoMsg">${msg}</p>`)
   scrollTop()
+}
+
+//表示のクリア
+function dispClear() {
+  $('#thread').empty()
 }
 
 // 自身の投稿
