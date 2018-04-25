@@ -4,11 +4,11 @@
 // 入力されたユーザ名を取得する
 const userName = $('#userName').val();
 //const userName = socket.request.session.user;
-const icon = $('#userIcon').val();
+const iconInfo = $('#userIcon').val();
 let isFirstEnter = true;
 
 // 入室メッセージイベントを送信する
-socket.emit('enter', {userName:userName, iconInfo:icon})
+socket.emit('enter', {userName, iconInfo})
 
 socket.on('enter', function (data) {
     if(isFirstEnter) { // 自身のenter処理
