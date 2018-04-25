@@ -14,11 +14,11 @@
     <form id="login_submit" method="post" action="/login">
       <div>
         <label>ユーザーID：</label>
-        <input type="text" id='UserName' name="UserName"/>
+        <input type="text" id='UserName' name="UserName" value="{{userName}}"/>
       </div>
       <div>
         <label>パスワード：</label>
-        <input type="password" id='Password' name="Password"/>
+        <input type="password" id='Password' name="Password" value="{{password}}"/>
       </div>
       <div>
         <input type="submit" value="ログイン" class='btn btn-info'/>

@@ -40,7 +40,8 @@ router.post('/', function(req, res, next) {
       );
     }
     if(!isNameResistation){
-      res.redirect('/login');
+      // res.redirect('/login',{userName, password});
+      res.render('login',{userName, password});
     }
   });
 });
