@@ -6,8 +6,10 @@ const router = express.Router();
 // ログイン画面の表示
 router.get('/', function(request, response, next) {
     response.render('index',{
-      userName:request.session.user
+      //userName:request.session.user
     });
+    var form = document.forms.room_submit;
+    form.userName.value = request.session.user;
 });
 
 // チャット画面の表示
