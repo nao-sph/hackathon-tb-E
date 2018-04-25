@@ -17,11 +17,11 @@ class Message {
 }
 
 module.exports = function (socket, io, UM, MM) {
-  socket.on('keyword1', (data) => { // keywordは自分で設定する
+  socket.on('rename', (data) => { // keywordは自分で設定する
     let msg = data[0]
 
     // ここに処理を書く
-
+    
 
     data = new Message(msg, (new Date()).toFormat('HH24:MI')) // データの整形
     MM.add(data, 'msg')
