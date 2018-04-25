@@ -12,6 +12,7 @@ const session = require('express-session');
 const routes = require('./routes/index');
 const register = require('./routes/register');
 const login = require('./routes/login');
+const logout = require('./routes/logout');
 
 const app = express();
 
@@ -51,6 +52,7 @@ var sessionCheck = function(req, res, next) {
 
 app.use('/login',login);
 app.use('/register',register);
+app.use('/logout', logout);
 app.use('/', sessionCheck, routes);
 
 // catch 404 and forward to error handler
